@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.davidvan.myprograms.packyourbag.Adapter.Adapter;
 import com.davidvan.myprograms.packyourbag.Constants.MyConstants;
@@ -13,6 +14,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+
+    private static final int TIME_INTERVAL = 2000;
+    private long mBackPressed;
+
+    @Override
+    public void onBackPressed() {
+        if(mBackPressed + TIME_INTERVAL > System.currentTimeMillis()) {
+            super.onBackPressed();
+            return;
+        }else{
+            Toast.makeText(this, "Tap back button again in order to exit", Toast.LENGTH_SHORT).show();
+        }
+        mBackPressed = System.currentTimeMillis();
+    }
 
     RecyclerView recyclerView;
     List<String> titles;
@@ -67,5 +83,8 @@ public class MainActivity extends AppCompatActivity {
         images.add(R.drawable.p11);
         images.add(R.drawable.p12);
     }
+
+
+
 
 }
