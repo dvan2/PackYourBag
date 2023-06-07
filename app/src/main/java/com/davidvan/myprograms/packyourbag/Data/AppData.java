@@ -19,7 +19,7 @@ public class AppData extends Application {
     Context context;
 
     public static final String LAST_VERSION = "LAST_VERSION";
-    public static final int NEW_VERSION = 3;
+    public static final int NEW_VERSION = 1;
 
     public AppData(RoomDB database) {
         this.database = database;
